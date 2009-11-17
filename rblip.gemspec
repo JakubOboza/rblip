@@ -15,6 +15,15 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = [
     "README"
   ]
+  s.files = [
+    "CHANGELOG",
+     "README",
+     "Rakefile",
+     "lib/core.rb",
+     "lib/rblip.rb",
+     "rblip.gemspec",
+     "test.rb"
+  ]
   s.homepage = %q{http://github.com/JakubOboza/rblip}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
@@ -26,9 +35,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<json>, [">= 1.1.9"])
     else
+      s.add_dependency(%q<json>, [">= 1.1.9"])
     end
   else
+    s.add_dependency(%q<json>, [">= 1.1.9"])
   end
 end
 
