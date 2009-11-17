@@ -1,0 +1,38 @@
+Hi, This is implementation of Blip.pl api for Ruby
+===================================================
+Author: Jakub Oboza
+===================================================
+Usage:
+
+
+How to get client object ;)
+
+client = RBlip.new(:login => "wombat", :password => "password")
+
+How to ready my dashboard
+
+client = RBlip.new(:login => "wombat", :password => "password")
+
+client.dashboard.each do |line|
+ puts line["user_path"].gsub(/.+\//,"") + " : " + line["body"]
+end
+
+In return of method you have parsed JSON response from server 
+* I don't know if we need to implement automerging of "user" currently api returns only user path.
+It can be convert to username by ( line["user_path"].gsub(/.+\//,"") )
+
+How to set status
+
+client = RBlip.new(:login => "wombat", :password => "password")
+client.set_status("*_*")
+
+Sets status *_*  
+
+response looks like this:
+
+{"created_at"=>"2009-11-17 22:20:37", "body"=>"*_*", "id"=>21050256, "type"=>"Status", "user_path"=>"/users/wombat", "transport"=>{"name"=>"api", "id"=>7}}
+
+You can read message id etc...
+
+===================================================
+
